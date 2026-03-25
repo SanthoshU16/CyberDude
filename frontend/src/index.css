@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Cyber Theme Palette */
+  --bg-dark: #000200;
+  --bg-panel: rgba(0, 15, 0, 0.85);
+  --border-subtle: #003300;
+  --border-glow: #00ff41;
+  
+  --text-main: #e0e0e0;
+  --text-muted: #669966;
+  
+  /* Neon Accents */
+  --cyber-green: #00ff41;
+  --cyber-blue: #00ffff;
+  --cyber-pink: #ff00ff;
+  --cyber-red: #ff003c;
+  --cyber-yellow: #fcee0a;
+  
+  --primary: var(--cyber-green);
+  --primary-glow: rgba(0, 255, 65, 0.6);
+  --accent: var(--cyber-blue);
+  --accent-glow: rgba(0, 255, 255, 0.6);
+
+  --safe: var(--cyber-green);
+  --warning: var(--cyber-red);
+  --suspicious: var(--cyber-yellow);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  
+  /* Cyber Grid */
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
+
+body::after {
+  display: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+  border-left: 1px solid var(--border-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-green);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-blue);
+}

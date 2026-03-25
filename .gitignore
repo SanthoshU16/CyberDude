@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.venv/
+env/
+venv/
+ENV/
+build/
+dist/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+
+# React/Vite
+.vite/
+.eslintcache
+
+# Local databases
+*.db
+*.sqlite3
+
+# Env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
