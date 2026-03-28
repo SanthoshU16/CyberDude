@@ -50,13 +50,14 @@ const DomainCheckerPage = ({ onScan, initialQuery, clearQuery }) => {
       if (onScan) onScan(trimmed, response.data.status);
     } catch (err) {
       const detail = err.response?.data?.detail;
+      const renderNote = window.location.hostname === "localhost" ? "" : " (Backend is running on Render, it takes some time to run like 1 or 2 minutes)";
       if (Array.isArray(detail)) {
         setError(detail[0]?.msg || "Validation error.");
       } else {
         setError(
           detail ||
             err.response?.data?.message ||
-            "Failed to connect to the server. Is the backend running?"
+            "Failed to connect to the server. Is the backend running?" + renderNote
         );
       }
     } finally {

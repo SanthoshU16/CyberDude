@@ -41,10 +41,11 @@ const EmailCheckerPage = ({ onScan, initialQuery, clearQuery }) => {
       setResult(response.data);
       if (onScan) onScan(trimmed, response.data.status);
     } catch (err) {
+      const renderNote = window.location.hostname === "localhost" ? "" : " (Backend is running on Render, it takes some time to run like 1 or 2 minutes)";
       const msg =
         err.response?.data?.detail ||
         err.response?.data?.message ||
-        "Failed to connect to the server. Is the backend running?";
+        "Failed to connect to the server. Is the backend running?" + renderNote;
       setError(msg);
     } finally {
       setLoading(false);

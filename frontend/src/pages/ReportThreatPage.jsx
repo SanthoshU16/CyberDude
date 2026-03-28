@@ -25,7 +25,11 @@ const ReportThreatPage = () => {
       setSuccess(true);
       setInput("");
     } catch (err) {
-      setError("Failed to submit report. Database offline.");
+      const renderNote = window.location.hostname === "localhost" ? "" : " (Backend is running on Render, it takes some time to run like 1 or 2 minutes)";
+      setError(
+        err.response?.data?.detail ||
+          "Failed to connect to the server. Is the backend running?" + renderNote
+      );
     } finally {
       setLoading(false);
     }
