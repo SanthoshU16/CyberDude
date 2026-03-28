@@ -5,7 +5,7 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
 from app.config import settings
-from app.routers import email_router, domain_router, header_router, breach_router, file_router, report_router
+from app.routers import email_router, domain_router
 from app.middleware.exception_handler import ExceptionMiddleware
 from app.utils.logger import get_logger
 
@@ -40,10 +40,6 @@ app.add_middleware(
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(email_router.router)
 app.include_router(domain_router.router)
-app.include_router(header_router.router)
-app.include_router(breach_router.router)
-app.include_router(file_router.router)
-app.include_router(report_router.router)
 
 
 @app.get("/", tags=["Health"])

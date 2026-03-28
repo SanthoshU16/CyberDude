@@ -3,21 +3,13 @@ import Navbar from "./components/Navbar";
 import HistoryPanel from "./components/HistoryPanel";
 import EmailCheckerPage from "./pages/EmailCheckerPage";
 import DomainCheckerPage from "./pages/DomainCheckerPage";
-import BreachCheckerPage from "./pages/BreachCheckerPage";
-import FileAnalyzerPage from "./pages/FileAnalyzerPage";
-import ReportThreatPage from "./pages/ReportThreatPage";
-import HeaderAnalyzerPage from "./pages/HeaderAnalyzerPage";
 import MatrixBackground from "./components/MatrixBackground";
-import { Mail, Globe, Shield, Database, FileWarning, ShieldAlert, Code, Clock, ChevronRight, ChevronLeft, PanelLeft } from "lucide-react";
+import { Mail, Globe, Shield, PanelLeft } from "lucide-react";
 import "./App.css";
 
 const TABS = [
   { id: "domain", label: "Domain Scanner", icon: Globe },
   { id: "email", label: "Email Scanner", icon: Mail },
-  { id: "headers", label: "Header Check", icon: Code },
-  { id: "breach", label: "Breach Check", icon: Database },
-  { id: "file", label: "Payload Analysis", icon: FileWarning },
-  { id: "report", label: "Report Threat", icon: ShieldAlert },
 ];
 
 function App() {
@@ -55,7 +47,7 @@ function App() {
   
   const handleHistoryClick = (item) => {
     const map = {
-      "Domain": "domain", "Email": "email", "Header": "headers", "Breach DB": "breach", "Payload": "file"
+      "Domain": "domain", "Email": "email"
     };
     const targetTab = map[item.type];
     if (targetTab) {
@@ -133,10 +125,6 @@ function App() {
               <div className="workspace-content">
                 {tab === "email" && <EmailCheckerPage key={`email-${refreshKey}`} onScan={(input, status) => handleScan("Email", input, status)} initialQuery={activeQuery} clearQuery={() => setActiveQuery(null)} />}
                 {tab === "domain" && <DomainCheckerPage key={`domain-${refreshKey}`} onScan={(input, status) => handleScan("Domain", input, status)} initialQuery={activeQuery} clearQuery={() => setActiveQuery(null)} />}
-                {tab === "headers" && <HeaderAnalyzerPage key={`header-${refreshKey}`} onScan={(input, status) => handleScan("Header", input, status)} initialQuery={activeQuery} clearQuery={() => setActiveQuery(null)} />}
-                {tab === "breach" && <BreachCheckerPage key={`breach-${refreshKey}`} onScan={(input, status) => handleScan("Breach DB", input, status)} initialQuery={activeQuery} clearQuery={() => setActiveQuery(null)} />}
-                {tab === "file" && <FileAnalyzerPage key={`file-${refreshKey}`} onScan={(input, status) => handleScan("Payload", input, status)} initialQuery={activeQuery} clearQuery={() => setActiveQuery(null)} />}
-                {tab === "report" && <ReportThreatPage key={`report-${refreshKey}`} />}
               </div>
             </div>
           </main>

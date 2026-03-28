@@ -1,6 +1,6 @@
 # 🛡️ Cyber Dude: Tech Stack & Implementation Details
 
-A high-performance cybersecurity suite with a focus on phishing detection and data breach analysis.
+A streamlined cybersecurity suite specialized in domain phishing detection and email content analysis.
 
 ---
 
@@ -9,35 +9,40 @@ A high-performance cybersecurity suite with a focus on phishing detection and da
 ### Frontend Architecture
 - **Framework:** [React 19+](https://react.dev/) (via [Vite](https://vitejs.dev/))
 - **Icons:** [Lucide-React](https://lucide.dev/)
-- **State Management:** React Hooks (`useState`, `useEffect`, `useContext`)
-- **API Client:** [Axios](https://axios-http.com/) (with custom service wrappers)
-- **Styling:** Vanilla CSS 3 (Design Tokens, Flexbox/Grid, Glassmorphism)
-- **Persistence:** Browser `localStorage` (Session/Scan History)
+- **State Management:** React Hooks (`useState`, `useEffect`)
+- **API Client:** [Axios](https://axios-http.com/)
+- **Styling:** Vanilla CSS 3 (Design Tokens, Glassmorphism, Matrix Visuals)
+- **Persistence:** Browser `localStorage` (Scan History)
 
 ### Backend Architecture
 - **Language:** [Python 3.10+](https://www.python.org/)
 - **Framework:** [FastAPI](https://fastapi.tiangolo.com/)
-- **API Server:** [Uvicorn](https://www.uvicorn.org/) (Asynchronous Server Gateway)
-- **Rate Limiting:** [SlowAPI](https://github.com/lauryndas/slowapi) (DDoS protection)
-- **Security:** [Pydantic v2](https://docs.pydantic.dev/) (Data validation/schemas)
-- **Environment:** [Python-Dotenv](https://pypi.org/project/python-dotenv/)
+- **API Server:** [Uvicorn](https://www.uvicorn.org/): High-performance ASGI server
+- **Rate Limiting:** [SlowAPI](https://github.com/lauryndas/slowapi) for DDoS protection
+- **Security:** [Pydantic v2](https://docs.pydantic.dev/) for data validation
 
 ### Infrastructure & Deployment
-- **Frontend Hosting:** [Vercel](https://vercel.com/) (Production build)
-- **Backend Hosting:** [Render](https://render.com/) (Python Web Service)
-- **CI/CD:** [GitHub](https://github.com/) (Automated deployments)
+- **Frontend Hosting:** [Vercel](https://vercel.com/)
+- **Backend Hosting:** [Render](https://render.com/)
+- **CI/CD:** [GitHub](https://github.com/) actions
 
 ---
 
 ## 🔍 Core Security Logic
-- **Phishing Detection:** Custom regex and keyword-based heuristics for deceptive link analysis.
-- **Breach Integration:** Static/Dynamic lookup logic for known email compromises.
-- **Domain IQ:** ASN lookup simulations and reputation-based scoring models.
-- **Header Analysis:** Deep SMTP header parsing (SPF/DKIM/DMARC status simulation).
+
+### 1. Domain Phishing Detection
+Check domains or URLs for typosquatting and spoofing with similarity scoring.
+- **Algorithm:** Character-level difference parsing and normalization.
+- **Database:** Internal trusted whitelist for fuzzy matching.
+
+### 2. Email Content Analysis
+Heuristic scanning of email text for phishing indicators.
+- **Indicators:** Urgency, financial keywords, credential requests, and suspicious URL patterns.
+- **Scoring:** Multi-category scoring with distinct risk levels (Safe, Suspicious, Warning).
 
 ---
 
 ## 📦 Project Metadata
-- **Backend Entry:** `backend/main.py`
+- **Backend Entry:** `backend/app/main.py`
 - **Frontend Entry:** `frontend/src/main.jsx`
-- **Environment Management:** Multi-tier `.env` configuration (Frontend/Backend isolated).
+- **History Limit:** 15 most recent scans stored in `localStorage`.
