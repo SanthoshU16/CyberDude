@@ -14,7 +14,7 @@ const TABS = [
 
 function App() {
   const [tab, setTab] = useState("domain");
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
   const [history, setHistory] = useState(() => {
     try {
       const saved = localStorage.getItem("cyberdude_history");
